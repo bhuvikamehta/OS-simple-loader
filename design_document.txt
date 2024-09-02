@@ -1,0 +1,17 @@
+OS Assignment-1: SimpleLoader: An ELF Loader in C from Scratch
+
+We have attempted the without-bonus section.
+
+Group ID- 58
+Group Members:
+Bhuvika Mehta (bhuvika23172@iiitd.ac.in)
+Pragya Singh (pragya23379@iiitd.ac.in)
+
+Github Repository link- https://github.com/bhuvikamehta/OS-assignment-1-simple-loader/tree/main
+
+Contribution:
+Both contributed equally and were present at all times. The task was distributed equally within both members.
+
+SimpleLoader Implementation:
+It first opens the file in read only mode and determines the file size using the 'lseek()' command. It then checks whether the file is a valid ELF file by verifying the 'e_ident' magic numbers. It allocates memory for the ELF header and reads it into 'ehdr'. After validating the ELF file, it allocates memory for the program header table and reads it into 'phdr'. The code then finds the 'PT_LOAD' segment that contains the entry point (e_entry). It allocates memory for this segment using 'mmap', loads the segment content into the allocated memory, and calculates the address of the entry point. The entry point address is typecast to a function pointer for the '_start' method, which is then called. Finally, the code unmaps the memory region, frees the buffer holding the binary data, and closes the file descriptor.
+
